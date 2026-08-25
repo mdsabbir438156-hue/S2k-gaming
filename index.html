@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2K Gaming - Free Fire Tournament</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f172a; color: #fff; margin: 0; padding: 20px; text-align: center; }
+        .container { max-width: 500px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        h1 { color: #f59e0b; margin-bottom: 5px; }
+        p { color: #94a3b8; font-size: 14px; }
+        .match-card { background: #0f172a; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #f59e0b; text-align: left; }
+        .match-card h3 { margin: 0 0 10px 0; color: #38bdf8; }
+        .info { font-size: 14px; color: #cbd5e1; margin: 5px 0; }
+        input { width: 90%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #475569; background: #334155; color: #fff; outline: none; }
+        button { width: 95%; padding: 12px; background: #f59e0b; color: #000; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        button:hover { background: #d97706; }
+        #result { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 8px; display: none; }
+        .success { background: #15803d; color: #fff; }
+        .error { background: #b91c1c; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>S2K GAMING</h1>
+        <p>ফ্রি ফায়ার ডেলি কাস্টম টুর্নামেন্ট</p>
+
+        <div class="match-card">
+            <h3>ম্যাচ: CS Solo 1v1</h3>
+            <div class="info">এন্ট্রি ফি: ২০ টাকা | উইন প্রাইস: ৫০ টাকা</div>
+            <div class="info">ম্যাপ: Bermuda | সময়: রাত ৮:০০ টা</div>
+        </div>
+
+        <h3>রুম আইডি ও পাসওয়ার্ড পান</h3>
+        <input type="text" id="playerName" placeholder="আপনার ইন-গেম নাম (IGN)">
+        <input type="text" id="playerUID" placeholder="আপনার Free Fire UID">
+        <button onclick="getRoomDetails()">আইডি দেখুন</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // রেজিস্টার্ড প্লেয়ারদের নামের লিস্ট (উদাহরণস্বরূপ)
+        const registeredPlayers = ["ProGamer", "FF_Boss", "S2K_Leader"];
+
+        function getRoomDetails() {
+            const name = document.getElementById('playerName').value.trim();
+            const uid = document.getElementById('playerUID').value.trim();
+            const resultDiv = document.getElementById('result');
+
+            if (!name || !uid) {
+                resultDiv.className = "error";
+                resultDiv.innerText = "দয়া করে নাম এবং UID দুটিই দিন!";
+                resultDiv.style.display = "block";
+                return;
+            }
+
+            // ভেরিফিকেশন চেক
+            if (registeredPlayers.includes(name)) {
+                resultDiv.className = "success";
+                resultDiv.innerHTML = "স্বাগতম!<br><strong>Room ID:</strong> 98765432<br><strong>Password:</strong> 1234";
+            } else {
+                resultDiv.className = "error";
+                resultDiv.innerText = "ভুল তথ্য! আপনার নাম টুর্নামেন্ট লিস্টে নেই। অসাধুপায় অবলম্বন করলে অ্যাকাউন্ট ব্যান হবে।";
+            }
+            resultDiv.style.display = "block";
+        }
+    </script>
+
+</body>
+  </html>
+  
