@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2K Gaming - Wallet & Tournament</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0f172a; color: #fff; margin: 0; padding: 15px; text-align: center; }
+        .container { max-width: 480px; margin: 0 auto; background: #1e293b; padding: 20px; border-radius: 12px; border: 1px solid #334155; }
+        h1 { color: #f59e0b; margin-bottom: 5px; }
+        .payment-box { background: #0f172a; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px dashed #f59e0b; text-align: left; }
+        .number-tag { font-size: 16px; color: #38bdf8; font-weight: bold; margin: 5px 0; }
+        input, select { width: 90%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #475569; background: #334155; color: #fff; }
+        button { width: 95%; padding: 12px; background: #f59e0b; color: #000; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        #status { margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 6px; display: none; }
+        .success { background: #15803d; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>S2K GAMING</h1>
+        <p>টাকা ডিপোজিট ও টুর্নামেন্ট এন্ট্রি</p>
+
+        <!-- পেমেন্ট ইন্সট্রাকশন -->
+        <div class="payment-box">
+            <div style="color: #f59e0b; font-weight: bold;">টাকা পাঠানোর নিয়ম:</div>
+            <div class="number-tag">bKash (Send Money): 017XXXXXXXX</div>
+            <div class="number-tag">Nagad (Send Money): 018XXXXXXXX</div>
+            <p style="font-size: 12px; color: #94a3b8; margin: 5px 0 0 0;">* সর্বনিম্ন এন্ট্রি ফি ৫০ টাকা পাঠাতে হবে।</p>
+        </div>
+
+        <!-- জমা দেওয়ার ফর্ম -->
+        <h3>ডিপোজিট ভেরিফিকেশন ফর্ম</h3>
+        <input type="text" id="pName" placeholder="আপনার ইন-গেম নাম (IGN)">
+        <input type="text" id="pUID" placeholder="ফ্রি ফায়ার UID">
+        
+        <select id="method">
+            <option value="bkash">bKash</option>
+            <option value="nagad">Nagad</option>
+        </select>
+        
+        <input type="number" id="amount" placeholder="টাকার পরিমাণ (যেমন: ৫০)">
+        <input type="text" id="trxId" placeholder="TrxID (ট্রানজেকশন আইডি)">
+
+        <button onclick="submitDeposit()">ডিপোজিট রিকোয়েস্ট পাঠান</button>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        function submitDeposit() {
+            const name = document.getElementById('pName').value.trim();
+            const uid = document.getElementById('pUID').value.trim();
+            const trxId = document.getElementById('trxId').value.trim();
+            const statusDiv = document.getElementById('status');
+
+            if (!name || !uid || !trxId) {
+                alert("সবগুলো ঘর সঠিকভাবে পূরণ করুন!");
+                return;
+            }
+
+            statusDiv.className = "success";
+            statusDiv.innerHTML = "আপনার ডিপোজিট রিকোয়েস্ট জমা হয়েছে!<br>অ্যাডমিন ভেরিফাই করে ১০ মিনিটের মধ্যে আইডি পাসওয়ার্ড SMS/WhatsApp-এ জানিয়ে দেবে।";
+            statusDiv.style.display = "block";
+        }
+    </script>
+
+</body>
+          </html>
+          01804582672
